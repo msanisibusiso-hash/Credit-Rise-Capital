@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Plug SA – Credit Repair & Money Coaching</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --green: #00a651;
+      --dark: #093021;
+      --light-bg: #f7f4ee;
+      --text: #222222;
+      --muted: #666666;
+      --radius-lg: 1.25rem;
+      --shadow-soft: 0 18px 35px rgba(0,0,0,0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--light-bg);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Header & Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 40px rgba(0,0,0,0.12);
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--dark);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .btn-outline:hover {
+      background: #f1f1f1;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.9rem;
+      background: rgba(0,166,81,0.08);
+      color: var(--green);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--green);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3rem 0 3.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .hero-right {
+      justify-self: center;
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      max-width: 360px;
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .hero-score {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+    }
+
+    section:nth-of-type(even) {
+      background: #fff;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--dark);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 26rem;
+    }
+
+    /* Services grid */
+    .services-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .service-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .service-title {
+      font-size: 1.1rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .service-tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .service-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.3rem 0 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .service-list li {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      margin-bottom: 0.25rem;
+    }
+
+    .service-list li::before {
+      content: "✓";
+      color: var(--green);
+      margin-top: 0.1rem;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    .price {
+      font-weight: 700;
+      color: var(--dark);
+      font-size: 0.95rem;
+    }
+
+    .price span {
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Journey / How it works */
+    .two-col {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .steps {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.9rem;
+    }
+
+    .steps li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--green);
+      background: #fff;
+    }
+
+    .step-title {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .step-text {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    /* Pricing highlight */
+    .pricing-highlight {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.02);
+      max-width: 520px;
+    }
+
+    .pricing-highlight h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+      color: var(--dark);
+    }
+
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-row strong {
+      color: var(--dark);
+    }
+
+    /* Legal note */
+    .legal {
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-left: 3px solid rgba(0,0,0,0.08);
+      padding-left: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: grid;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 0.9rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--dark);
+    }
+
+    .faq-a {
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.04);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-pill {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.03);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    footer {
+      padding: 1.5rem 0 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (min-width: 720px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .two-col {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      }
+
+      .nav-cta {
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 2.2rem;
+      }
+
+      .hero-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <div class="logo-mark">TP</div>
+      <span>The Plug SA</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#journey">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta btn btn-primary">Book a consult</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-eyebrow pill">
+          <span class="pill-dot"></span>
+          Trusted, NCA-compliant credit & money coaching
+        </div>
+        <h1>Fix your credit, master your money, start investing.</h1>
+        <p>
+          We help you repair your credit report, manage your money with confidence,
+          and start investing in shares – even if you’re a complete beginner.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/27812579896" class="btn btn-primary" target="_blank" rel="noopener">
+            WhatsApp us: 081&nbsp;257&nbsp;9896
+          </a>
+          <a href="#services" class="btn btn-outline">See our packages</a>
+        </div>
+        <p class="hero-note">
+          Based in South Africa • Results-focused • We do the heavy lifting for you.
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <h2>Complete Credit Repair Package</h2>
+          <div class="hero-score">-1 ➜ ✅</div>
+          <p class="hero-meta">
+            We go line-by-line through your report, dispute errors with bureaus and
+            creditors, and guide you to rebuild your score the right way.
+          </p>
+          <p class="hero-tagline">
+            90 days of support, clear communication, and practical coaching.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-subtitle">
+            Choose the package that fits where you are right now – from urgent credit report fixes
+            to long-term money and investing support.
+          </p>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <article class="service-card">
+          <div class="service-label">Service 01</div>
+          <h3 class="service-title">Complete Credit Repair Package</h3>
+          <p class="service-tagline">
+            We do everything for you – full report audit, disputes, letters, and follow-ups.
+          </p>
+          <ul class="service-list">
+            <li>Full credit analysis & negative-item review</li>
+            <li>Dispute & correction service with bureaus and creditors</li>
+            <li>Goodwill, paid-up & prescription letters sent on your behalf</li>
+            <li>Score tracking & progress updates for 3 months</li>
+            <li>Guidance to rebuild your score with safe, legal strategies</li>
+          </ul>
+          <div class="service-meta">
+            <p class="price">
+              R 4&nbsp;500 <span>• 90 days of support</span>
+            </p>
+            <p class="note">
+              Or two payments of R 2&nbsp;250 (30 days apart).
+            </p>
+          </div>
+        </article>
+
+        <!-- Service 2 -->
+        <article class="service-card">
+          <div class="service-label">Service 02</div>
+          <h3 class="service-title">Credit Repair & Coaching Package</h3>
+          <p class="service-tagline">
+            Ideal if you want a clear action plan plus short-term support to execute it.
+          </p>
+          <ul class="service-list">
+            <li>Line-by-line audit of your credit report</li>
+            <li>Identification of the top issues affecting your score</li>
+            <li>Personalised step-by-step action plan</li>
+            <li>Ready-to-use dispute & arrears-removal templates</li>
+            <li>Resources and contacts (NCR, Ombudsman, bureaus, creditors)</li>
+          </ul>
+          <div class="service-meta">
+            <p class="price">
+              From R 500 <span>for your full action plan</span>
+            </p>
+            <p class="note">
+              Optional: 24-hr express (+R200) or extended support up to 3 months (+R400).
+            </p>
+          </div>
+        </article>
+
+        <!-- Service 3 -->
+        <article class="service-card">
+          <div class="service-label">Service 03</div>
+          <h3 class="service-title">Money Management Package</h3>
+          <p class="service-tagline">
+            Your 3-in-1 reset: personalised budget, debt repayment plan, and emergency-fund setup.
+          </p>
+          <ul class="service-list">
+            <li>Prioritised debt repayment plan (what to pay first and why)</li>
+            <li>Custom budget based on your real income & expenses</li>
+            <li>Emergency fund strategy so one crisis doesn’t break you</li>
+            <li>WhatsApp support while you implement</li>
+          </ul>
+          <div class="service-meta">
+            <p class="price">
+              Custom quote <span>• based on your situation</span>
+            </p>
+            <p class="note">
+              Standard delivery in 3 days after payment & info received.
+            </p>
+          </div>
+        </article>
+
+        <!-- Service 4 -->
+        <article class="service-card">
+          <div class="service-label">Service 04</div>
+          <h3 class="service-title">Investing Made Simple (EasyEquities)</h3>
+          <p class="service-tagline">
+            Step-by-step investing for beginners – learn to buy shares safely and confidently.
+          </p>
+          <ul class="service-list">
+            <li>How to open and set up your EasyEquities account</li>
+            <li>How to choose your first investments (step-by-step)</li>
+            <li>Common beginner mistakes to avoid</li>
+            <li>How to grow your portfolio safely over time</li>
+            <li>On-demand lesson: learn at your own pace</li>
+          </ul>
+          <div class="service-meta">
+            <p class="price">
+              Contact us <span>for latest class pricing</span>
+            </p>
+            <p class="note">
+              Watch anytime • Pause, rewind, and rewatch as needed.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIT JOURNEY / HOW IT WORKS -->
+  <section id="journey">
+    <div class="container two-col">
+      <div>
+        <h2 class="section-title">Your Credit & Money Journey</h2>
+        <p class="section-subtitle">
+          Whether you choose a full “done-for-you” package or a coaching-first option,
+          the process is simple and transparent.
+        </p>
+        <ul class="steps">
+          <li>
+            <div class="step-number">1</div>
+            <div>
+              <div class="step-title">Analysis & planning</div>
+              <div class="step-text">
+                We review your reports and/or money situation and design a custom plan tailored to your goals.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="step-number">2</div>
+            <div>
+              <div class="step-title">Disputes, letters & templates</div>
+              <div class="step-text">
+                We prepare and submit disputes to the bureaus and creditors – or provide you with ready-to-use templates.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="step-number">3</div>
+            <div>
+              <div class="step-title">Follow-up & progress tracking</div>
+              <div class="step-text">
+                We track responses, send follow-ups, and keep you updated on changes to your report.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="step-number">4</div>
+            <div>
+              <div class="step-title">Rebuild & maintain</div>
+              <div class="step-text">
+                You get practical tools to rebuild your score, manage your money, and start investing with confidence.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div id="pricing">
+        <div class="pricing-highlight">
+          <h3>Popular: Complete Credit Repair Package</h3>
+          <div class="pricing-row">
+            <span>Full Service (90-day support)</span>
+            <strong>R 4&nbsp;500</strong>
+          </div>
+          <div class="pricing-row">
+            <span>Split Plan</span>
+            <span>2 × R 2&nbsp;250 (30 days apart)</span>
+          </div>
+          <p class="note" style="margin-top:0.8rem;">
+            Includes credit analysis, all dispute letters, bureau & creditor correspondence,
+            and progress updates for 3 months.
+          </p>
+          <div class="legal">
+            Services are limited to credit report correction, disputes and money coaching
+            in line with the National Credit Act (Section 72). This is <strong>not</strong> debt review or
+            formal debt counselling.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">How long does credit repair usually take?</div>
+          <div class="faq-a">
+            Most clients start seeing changes within a few weeks, but full
+            results can take several months. That’s why our complete package
+            includes 90 days of support and progress tracking.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can you guarantee specific score increases?</div>
+          <div class="faq-a">
+            No one can legally guarantee a specific score. We focus on
+            correcting errors, resolving negative listings, and teaching you
+            how to manage your credit so your score can improve over time.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do I need a credit report before we start?</div>
+          <div class="faq-a">
+            If you already have your report, great. If not, we’ll guide you on
+            how to download it from the bureaus for free or at a low cost.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is this only for people with bad credit?</div>
+          <div class="faq-a">
+            No. Our money management and investing services are perfect even if
+            your credit is fine – they’re designed to help you budget better,
+            get out of debt faster, and start building wealth.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Ready to get started?</h2>
+          <p class="section-subtitle">
+            Send us a WhatsApp or email with your name, your main concern
+            (credit, money management, or investing), and we’ll reply with the
+            best package for you.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-row">
+          <div class="contact-pill">
+            📞 <strong>WhatsApp / Call:</strong> 081&nbsp;257&nbsp;9896
+          </div>
+          <div class="contact-pill">
+            📧 <strong>Email:</strong> <a href="mailto:admin@theplugsa.com">admin@theplugsa.com</a>
+          </div>
+          <div class="contact-pill">
+            🌐 <strong>Website:</strong> <a href="https://www.theplugsa.com" target="_blank" rel="noopener">www.theplugsa.com</a>
+          </div>
+          <div class="contact-pill">
+            📱 <strong>Instagram:</strong> @sibusisomsani
+          </div>
+        </div>
+        <p class="note">
+          Business hours: Monday – Friday, 9:00–17:00 (SAST).  
+          If you message outside of these times, we’ll get back to you as soon as we can.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    &copy; <span id="year"></span> The Plug SA. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Simple script to set the current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+  </html>
